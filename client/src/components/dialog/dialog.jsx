@@ -10,7 +10,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from "react";
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = process.env.REACT_APP_BASE_URL + "/api";
 
 export default function FormDialog(props) {
     const [editValues, setEditValues] = useState({

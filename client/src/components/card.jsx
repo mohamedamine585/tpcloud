@@ -5,7 +5,7 @@ import "./card.css";
 import FormDialog from "./dialog/dialog";
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = process.env.REACT_APP_BASE_URL + "/api";
 
 const Card = (props) => {
     const [open, setOpen] = React.useState(false);

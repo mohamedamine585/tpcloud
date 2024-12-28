@@ -8,7 +8,7 @@ import Axios from "axios";
 import Card from "./components/card";
 
 function App() {
-    const baseUrl = process.env.REACT_APP_BASE_URL;
+    const baseUrl = process.env.REACT_APP_BASE_URL + "/api";
 
     const [values, setValues] = useState();
     const [games, setGames] = useState();
