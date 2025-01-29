@@ -1,37 +1,43 @@
-import React, { useState} from "react";
-import "./card.css"
+import "./card.css";
 import FormDialog from "./dialog/dialog";
 import axios from "axios";
-
+import React from "react";
 
 const Card = (props) => {
     const [open, setOpen] = React.useState(false);
 
     const cardOpen = () => {
-        setOpen(true)
-    }
+        setOpen(true);
+    };
+
     const handleClose = () => {
         setOpen(false);
     };
 
     const handleDeleteGame = () => {
-        axios.delete(`http://localhost:3001/delete/${props.id}`);
-    }
+        axios.delete(`http://publiclb-314884982.us-east-1.elb.amazonaws.com/api/games/${props.id}`)
+            .then(() => alert("Game deleted successfully"))
+            .catch((error) => console.error("Error deleting game:", error));
+    };
 
     return (
         <>
-        <FormDialog open={open} setOpen={setOpen} id={props.id} name={props.name} cost={props.cost} category={props.category} />
-        <div className="game-card">
-            <div className="info">
-                <h4>{props.name}</h4>
-                <p>${props.cost}</p>
-                <p>{props.category}</p>
+            <FormDialog open={open} setOpen={setOpen} id={props.id} name={props.name} />
+            <div className="game-card">
+                <img 
+              src="https://tpbucket25.s3.us-east-1.amazonaws.com/game.png" 
+                    
+                />
+                <div className="info">
+                    <h4>{props.name}</h4>
+                    <p>${props.cost}</p>
+                    <p>{props.category}</p>
+                </div>
+                <div className="actions">
+                    <button className="edit" onClick={cardOpen}>Edit</button>
+                    <button className="delete" onClick={handleDeleteGame}>Delete</button>
+                </div>
             </div>
-            <div className="actions">
-                <button className="edit" onClick={cardOpen}>Edit</button>
-                <button className="delete" onClick={handleDeleteGame}>Delete</button>
-            </div>
-        </div>
         </>
     );
 };
