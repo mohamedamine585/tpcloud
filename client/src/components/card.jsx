@@ -24,8 +24,11 @@ const Card = (props) => {
         <>
             <FormDialog open={open} setOpen={setOpen} id={props.id} name={props.name} />
             <div className="game-card">
+            
                 <img 
-              src="https://tpbucket25.s3.us-east-1.amazonaws.com/game.png" 
+              height="100"
+              width="100"
+              src="https://tpbucket25.s3.us-east-1.amazonaws.com/gameLogo.png" 
                     
                 />
                 <div className="info">
@@ -33,6 +36,7 @@ const Card = (props) => {
                     <p>${props.cost}</p>
                     <p>{props.category}</p>
                 </div>
+                
                 <div className="actions">
                     <button className="edit" onClick={cardOpen}>Edit</button>
                     <button className="delete" onClick={handleDeleteGame}>Delete</button>

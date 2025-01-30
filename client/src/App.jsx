@@ -41,7 +41,6 @@ function App() {
       <div className="container">
           <h1 className="title">Game Shop</h1>
           <h3>Add a Game</h3>
-          <img src="https://tpbucket25.s3.us-east-1.amazonaws.com/Capture+d'%C3%A9cran+2025-01-29+215746.png" > </img>
           <div className="register-box">
               <input className="register-input" type="text" name="name" placeholder="Title" onChange={handleChangeValues} />
               <input className="register-input" type="text" name="cost" placeholder="Cost" onChange={handleChangeValues} />
